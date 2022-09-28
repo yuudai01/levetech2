@@ -16,8 +16,7 @@ class Post extends Model
         'updated_at',
         'NG',
         'ranking',
-        'user_id',
-        'comment_id'
+        'user_id'
     ];
     
     public function getPaginateByLimit(int $limit_count = 10)
@@ -37,12 +36,7 @@ class Post extends Model
     {
         return $this->belongsTo('App\user');
     }
-    //commentに対するリレーション
-    //「多対1」の関係なので複数系に
-    public function comments()
-    {
-        return $this->hasMany('App\Comments');
-    }
+    
     
     public function getPaginateByLimitWithAuth(int $limit_count=10){
         return $this::where('user_id',auth()->id())->orderBy('updated_at', 'DESC')->paginate($limit_count);

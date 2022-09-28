@@ -42,24 +42,6 @@
                 }
             }
         </script>
-        
-        <form action="/posts" method="POST">
-            @csrf
-            <div class="body">
-                <h2>Body</h2>
-                <textarea name="comment[body]" placeholder="感想に対するコメント">{{ old('comments.body') }}</textarea>
-                <p class="body__error" style="color:red">{{ $errors->first('comments.body') }}</p>
-            </div>
-        </form>
-        
-        <input type="submit" value="保存"/>
-        <div class="content_comments">
-            <div class="content__comment">
-                
-                <p>{{ $post->body }}</p>
-                
-            </div>
-        </div>
         @endsection
         
     </body>
